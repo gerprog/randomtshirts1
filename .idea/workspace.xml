@@ -114,7 +114,6 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/sass/dc2fe427453efcdae1b82edb19520aba26760daf/scaffolds.css.scssc" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/cache/sass/dc2fe427453efcdae1b82edb19520aba26760daf/shapes.css.scssc" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
     </list>
     <ignored path="randomtshirts1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -136,7 +135,7 @@
       <file leaf-file-name="Gemfile" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Gemfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="0" selection-start="191" selection-end="191" vertical-scroll-proportion="0.21970706">
+            <state line="11" column="1" selection-start="191" selection-end="191" vertical-scroll-proportion="0.21970706">
               <folding />
             </state>
           </provider>
@@ -164,8 +163,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="20" />
-    <option name="y" value="146" />
+    <option name="x" value="-22" />
+    <option name="y" value="265" />
     <option name="width" value="1442" />
     <option name="height" value="875" />
   </component>
@@ -392,7 +391,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="20" y="146" width="1442" height="875" extended-state="0" />
+    <frame x="-22" y="265" width="1442" height="875" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -476,7 +475,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="191" selection-end="191" vertical-scroll-proportion="0.21970706">
+        <state line="11" column="1" selection-start="191" selection-end="191" vertical-scroll-proportion="0.21970706">
           <folding />
         </state>
       </provider>
