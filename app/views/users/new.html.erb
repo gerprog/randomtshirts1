@@ -1,0 +1,60 @@
+<div id="main_users" xmlns="http://www.w3.org/1999/html">
+  <div id="users_new_left">
+  <p class="heading_4">Join So Random</p>
+  <%= form_for(@user) do |f| %>
+      <% if @user.errors.any? %>
+          <div id="errorExplanation">
+            <h4><%= pluralize(@user.errors.count, "error") %>
+              ! Oops try again:</h4>
+            <ul>
+              <% @user.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
+
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.text_field :email %>
+      </div>
+      <div class="field">
+        <%= f.label :password %><br />
+        <%= f.password_field :password %>
+      </div>
+      <div class="actions">
+            <!-- below is the original button-->
+        <!--<%= f.submit "Sign me up !"%>-->
+        <!--below not working as expected-->
+        <!--<%= f.submit link_to image_submit_tag("signmeup.png") %>-->
+       <!-- odd solution to this problem from below:
+        http://stackoverflow.com/questions/6439087/button-with-an-image-->
+        <%= f.submit '', :class => "signup_btn" %>
+
+      </div>
+  <% end %>
+  <!--<%= link_to 'Back', shapes_path %>-->
+  </div>
+  <div id="users_new_right">
+    <p class="heading_4">Welcome!</p>
+    <p class="intro">Here is where to find a <em>'Where did you find?'</em> T-Shirt! <br>
+      You can generate random images and random text. <br>
+      You can change the text colour as you wish.<br> <br>
+    Signing up with <span class="intro_bold">So Random T-Shirts</span> is very easy, <br>
+    simply an email and password.<br>
+    We will email confirmation. <br>
+      Once logged in you can purchase T-Shirts!<br>
+    </p>
+  </div>
+  <div id="users_new_bottom">
+
+    <% @shapes.each do |shape| %>
+        <div class="model_pad_btm">
+          <%= image_tag(shape.gallery_img) %>
+        </div>
+    <% end %>
+
+    <p class="heading_4">Please browse the Gallery to see some more! </p>
+
+  </div>
+</div>

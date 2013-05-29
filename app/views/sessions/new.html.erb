@@ -1,0 +1,43 @@
+<div id="main_users" xmlns="http://www.w3.org/1999/html">
+
+  <div id="users_new_left">
+    <p class="heading_4">Login</p>
+    <%= form_tag sessions_path do %>
+        <div class="field">
+          <%= label_tag :email %><br />
+          <%= text_field_tag :email %>
+        </div>
+        <div class="field">
+          <%= label_tag :password %><br />
+          <%= password_field_tag :password %>
+        </div>
+        <div class="actions">
+          <%= image_submit_tag("login.png") %>
+          <!--<%= submit_tag 'Login' %>-->
+        </div>
+    <% end %>
+  </div>
+
+  <div id="users_new_right">
+    <p class="heading_4">Welcome!</p>
+    <p class="intro">
+      You must be logged in to place an order. <br>
+      Just enter the email and password you used <br>
+      when signing up.<br>
+      <%= link_to "Sign Up", new_user_path %>  is very simple!
+
+    <p class="heading_4">Thanks!</p>
+    </p>
+  </div>
+  <div id="users_new_bottom">
+
+    <% @shapes.each do |shape| %>
+        <div class="model_pad_btm">
+          <%= image_tag(shape.gallery_img) %>
+        </div>
+    <% end %>
+
+    <p class="heading_4">Please browse the Gallery to see some more! </p>
+
+  </div>
+</div>

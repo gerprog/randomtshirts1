@@ -1,0 +1,45 @@
+<div id="main_no_row">
+<!--  <h1>Listing galleries</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Comment</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @galleries.each do |gallery| %>
+  <tr>
+    <td><%= gallery.name %></td>
+    <td><%= gallery.comment %></td>
+    <td><%= link_to 'Show', gallery %></td>
+    <td><%= link_to 'Edit', edit_gallery_path(gallery) %></td>
+    <td><%= link_to 'Destroy', gallery, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Gallery', new_gallery_path %>-->
+
+
+
+    <% @shapes.each do |shape| %>
+      <div class="model">
+        <%= image_tag(shape.gallery_img) %>
+      </div>
+    <% end %>
+
+  <div id="gallery_btm_left"></div>
+    <div id="gallery_see_more">
+      <%= link_to image_tag("seemore.png"), :controller => "galleries",  :action => "index" %>
+    </div>
+  <div id="gallery_btm_middle"></div>
+  <div id="gallery_shop">
+    <%= link_to image_tag("shop.png"), :controller => "grid",  :action => "tshirt" %>
+  </div>
+  <div id="gallery_btm_right"></div>
+</div>

@@ -1,0 +1,44 @@
+  <div id="main_no_row">
+  <% if current_user and current_user.admin %>
+        <p class="heading_4">Welcome Administrator</p>
+      <b><%= current_user.email %></b>
+      <%=  Time.now %><br/> <br/>
+      <b> We have <%= @orders.to_a.length %> orders </b>
+
+  <% else %>
+        <p class="heading_4">Welcome to So Random T-Shirts! </p>
+      <b><%= current_user.email %></b>
+        <p class="intro">If you are in the process of making an order<br>
+        please now return to your cart</p>
+
+
+      would you like to edit your details?
+      <%= link_to 'Edit', edit_user_path(current_user) %>
+      <br/>
+
+      <% if current_user and not current_user.admin %>
+
+          <div>
+            <fieldset>
+              <legend><p class="heading_4">Your Previous Orders</p></legend><br>
+              <% @history.each do |order| %>
+                  <b>Name:</b> <%= order.name %> <br/>
+                  <b>Date of purchase:</b><%= order.created_at %> <br/>
+                  <b>Pay type:</b><%= order.pay_type %> <br/>
+                  <%= link_to 'Order Details', order %>  <br/>  <br/>
+              <% end %>
+              <% if current_user and not current_user.admin %>
+                  <p><%= will_paginate @history %></p>
+                  </fieldset>
+              <% end %>
+              </div>
+      <% end %>
+
+  <% end %>
+
+</div>
+
+
+
+
+

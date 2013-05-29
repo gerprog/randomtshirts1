@@ -1,0 +1,96 @@
+<% if notice %>
+    <p id="notice"><%= notice %></p>
+<% end %>
+
+<div id="main_no_row_no_padding">
+
+  <div id="tshirt">
+
+            <div id="tshirt_lrg_image">
+              <% @shapes.each do |shape| %>
+                  <%= image_tag(shape.lrg_image_url) %>
+            </div>
+
+             <div id="tshirt_text" class="tshirt_text">
+
+                   <span class="tshirt_text_navy">
+                    <%= shape.text %>
+                   </span>
+            </div>
+
+         <% end %>
+
+
+  </div>
+
+  <div id="tshirt_control_shop">
+    <div id="instruction">
+                <span class="tshirt_intro">A <span class="tshirt_intro_bold">So Random T-Shirt</span><br>
+                  You can try another! <br>
+                  Pick text colours! <br>
+                All T-Shirts &euro; 9.99 </span>
+    </div>
+
+    <div id="try_again">
+      <span class="try_again"></span>
+    </div>
+    <div id="try_again_btn">
+
+      <%= link_to image_tag("tryAgain.png"), :controller => "grid",  :action => "tshirt" %>
+
+    </div>
+
+    <div id="color_change_top"></div>
+
+    <div id="color_change">
+            <div id="color_red"></div>
+                <div class="color_white"></div>
+                    <div id="color_green"></div>
+                        <div class="color_white"></div>
+                            <div id="color_navy"></div>
+                                <div class="color_white"></div>
+                                    <div id="color_pink"></div>
+                                        <div class="color_white"></div>
+                                             <div id="color_cyan"></div>
+                                                     <div class="color_white"></div>
+                                                            <div id="color_purple"></div>
+    </div>
+
+    <div id="color_change_below"></div>
+
+
+    <div id="buy_btn">
+
+      <!--below will need to link to login if not logged in-->
+      <!--<%= link_to image_tag("buy_btn.png"), :controller => "grid",  :action => "index" %>-->
+
+      <% @shapes.each do |shape| %>
+          <div class="entry">
+            <!--<%= button_to 'Buy!', cart_line_items_path(shape_id: shape) %>-->
+            <!--<%= button_to image_tag("rails.png"), cart_line_items_path(shape_id: shape) %>-->
+            <%= link_to image_tag("buy_btn.png"), cart_line_items_path(:shape_id => shape), :method => :post%>
+
+            <!--<%= link_to image_tag("button_pink.png"), cart_line_items_path(shape_id: shape)%>-->
+          </div>
+      <% end %>
+    </div>
+
+  </div>
+
+
+
+  <div id="cart_bottom_text">
+    <!-- <p class="heading_4">See the Gallery for many more So Random T-Shirts!</p>-->
+  </div>
+
+  <div id="tshirt_bottom_left">
+
+    <p class="tshirt_intro">Check out Shirt Talk to see random<br>
+      <span class="tshirt_intro_bold">So Random T-Shirts</span> in the world!</p>
+
+  </div>
+  <div id="tshirt_bottom_right">
+    <%= link_to image_tag("shirttalk.png"), :controller => "posts",  :action => "index" %>
+  </div>
+
+</div>

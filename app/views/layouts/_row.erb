@@ -1,0 +1,7 @@
+
+      <%= render(@row.line_items) %>
+      <!--below is the original-->
+      <!--<%= button_to 'Start Again', @row, method: :delete %>-->
+
+       <span class="restart_btn"> <%= link_to image_tag("restart.png"), @row, method: :delete %>  </span>
+

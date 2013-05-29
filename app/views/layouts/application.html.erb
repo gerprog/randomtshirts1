@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>So Random T-Shirts</title>
+
+  <%= stylesheet_link_tag    "application", media: "all" %><!-- <label id="code.slt"/> -->
+  <%= javascript_include_tag "application" %><!-- <label id="code.jlt"/> -->
+  <%= csrf_meta_tags %><!-- <label id="code.csrf"/> -->
+  <link href='http://fonts.googleapis.com/css?family=Prata' rel='stylesheet' type='text/css'>
+</head>
+
+<body class="<%= controller.controller_name %>">
+
+<div id="main_wrapper">
+  <div id="price_sticker">
+
+  </div>
+
+  <div id="header">
+
+  </div>
+
+
+  <div id="intro" class="intro">
+
+    <!--To make a selection of Random T-Shirts <br>-->
+    Just go to Start and click and see!<br>
+    Or cheat and go straight to Shop! <br>
+    Be careful! If you try again it's gone! <br>
+    <span class="intro_bold_grey">+353 1 87654321 &nbsp;&nbsp;&nbsp;&nbsp;info@sorandomtshirts.ie</span>
+
+  </div>
+
+
+  <div id="login">
+
+    <% if logged_in? == false %>
+        <%= form_tag sessions_path do %>
+            <%= label_tag :email %><br>
+            <%= text_field_tag :email %>
+            <br/>
+            <%= label_tag :password %><br>
+            <%= password_field_tag :password %> <br> <br>
+            <!-- below line to have image on login button from :
+            http://api.rubyonrails.org/classes/ActionView/Helpers/FormTagHelper.html#method-i-image_submit_tag-->
+            <%= image_submit_tag("login.png") %>
+
+        <% end %>
+
+    <% else %>
+        <b><%= current_user.email %></b> <br><br>
+        <%= link_to image_tag("logout.png"), logout_path, method: :get    %>
+        <!--<%= button_to "Logout", logout_path, method: :get  %><br>-->
+    <% end %>
+
+  </div>
+
+
+  <div id="sidebar_left">
+
+    <div id="cart">
+
+      <%= render 'layouts/cart' %>
+    </div>
+
+    <div id="admins">
+      <% if current_user and current_user.admin %>
+          <ul>
+            <li ><%= link_to 'Orders', orders_path %></li>
+            <li ><%= link_to 'Shapes', shapes_path %></li>
+            <li ><%= link_to 'Admin', users_path %></li>
+          </ul>
+          <%= link_to image_tag("logout.png"), logout_path, method: :delete   %>
+          <!--<%= button_to 'Logout', logout_path, method: :delete   %>-->
+
+      <% end %>
+    </div>
+
+    <% if logged_in? == false or current_user.admin == false%>
+        <div id="sidebar_left_1">
+          <div id="sidebar_left_pic1" class="glow"> </div>
+        </div>
+        <div id="sidebar_left_2">
+          <div id="sidebar_left_pic2" class="glow"> </div>
+        </div>
+        <div id="sidebar_left_3">
+          <div id="sidebar_left_pic3" class="glow"> </div>
+        </div>
+        <div id="sidebar_left_4">
+          <div id="sidebar_left_pic4" class="glow"> </div>
+        </div>
+    <% end %>
+
+  </div>
+
+
+  <div id="centre_wrapper">
+  <div id="nav_bar">
+    <ul>
+      <li><%= link_to "Start", :controller => "grid",  :action => "index" %></li>
+      <li><%= link_to "Gallery", :controller => "galleries",  :action => "index" %></li>
+      <li><%= link_to "Shop", :controller => "grid",  :action => "tshirt" %></li>
+
+      <% if current_cart.cart_line_items.empty? %>
+        <li><%= link_to "Cart", :controller => "carts",  :action => "show" %></li>
+          <% else %>
+          <li><%= link_to "Cart", cart_path(current_cart) %></li>
+      <% end %>
+
+      <li><%= link_to "Shirt Talk", :controller => "posts",  :action => "index" %></li>
+
+      <% if logged_in? %>
+          <li><%= link_to "my profile", :controller => "users", :action => "welcome" %></li>
+
+          <% else %>
+      <li><%= link_to "Sign Up", new_user_path %></li>
+      <% end %>
+    </ul>
+  </div>
+
+
+    <%= yield %><!-- <label id="code.depot.e.include"/> -->
+
+     </div>
+
+
+  <div id="sidebar_right">
+    <div id="sidebar_right_top"></div>
+    <div id="sidebar_right_1">
+      <div id="sidebar_right_pic1" class="glow"> </div>
+    </div>
+    <div id="sidebar_right_2">
+      <div id="sidebar_right_pic2" class="glow"> </div>
+    </div>
+    <div id="sidebar_right_3">
+      <div id="sidebar_right_pic3" class="glow"> </div>
+    </div>
+    <div id="sidebar_right_4">
+      <div id="sidebar_right_pic4" class="glow"> </div>
+    </div>
+    <div id="sidebar_right_5">
+      <div id="sidebar_right_pic5" class="glow"> </div>
+    </div>
+  </div>
+
+
+
+</div>
+
+<!--below is from Disqus-->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'soramdomtshirts'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+  <!--end of script from disqus-->
+
+<div id="copyright">&copy; So Random T-Shirts - Gerard Daly 2013</div>
+</body>
+</html>

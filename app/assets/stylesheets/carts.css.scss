@@ -1,0 +1,68 @@
+// Place all the styles related to the Carts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* START_HIGHLIGHT */
+.carts, #sidebar_left #cart {
+  .item_price, .total_line {
+    text-align: right;
+  }
+
+  .total_line .total_cell {
+    font-weight: bold;
+    border-top: 1px solid #2217bf;
+  }
+}
+/* END_HIGHLIGHT */
+
+
+.cart_text {
+  //font-family: "Trebuchet MS", Arial, Verdana;
+  //font-family: "Andale Mono", AndaleMono, monospace;
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+  font-size: 9pt;
+  line-height: 160%;
+  color: #cf1e40;
+}
+
+#cart_pic{
+  //background: #ffffff;
+  width: 50px;
+  height: 50px;
+  float: left;
+  background-image: url(cart2.png);
+  margin-right: 15px;
+}
+
+#yourcart_pic{
+  //background: #ffffff;
+  width: 185px;
+  height: 60px;
+  float: left;
+  background-image: url(yourcart.png);
+  //margin-right: 15px;
+}
+
+.price{
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+  font-size: 14pt;
+  color: #ff2432;
+  border-top: 2px solid #c00d38;
+  float:right;
+
+}
+
+.table_right{
+  float: right;
+}
+
+.table_left{
+  float: left;
+}
+
+#cart_wrapper {
+  width: 300px;
+  height: 200px;
+  float: left;
+ background-color: #4fdbff;
+}

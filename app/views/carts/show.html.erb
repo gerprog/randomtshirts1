@@ -1,0 +1,104 @@
+<div id="main_no_row_no_padding">
+
+  <div id="tshirt">
+
+    <div id="tshirt_lrg_image">
+        <!--  below line from stack helped to show most recent addition to cart as large
+      http://stackoverflow.com/questions/3191448/limit-each-do-loop-->
+      <% @cart.cart_line_items.last(1).each do |item| %>
+
+          <%= image_tag(item.shape.lrg_image_url) %>
+
+          </div>
+
+          <div id="tshirt_text" class="tshirt_text">
+        <span class="tshirt_text_navy">
+         <%= item.shape.text %>
+          </span>
+          </div>
+
+          </div>
+      <% end %>
+
+
+  <div id="tshirt_cart_right">
+
+
+    <div id="tshirt_cart_right_top">
+      <% @cart.cart_line_items.to_a.each do |item| %>
+      <div id="tshirt_sml">
+        <div id="tshirt_sml_image" class="sml_image">
+
+              <%= image_tag(item.shape.lrg_image_url) %>
+
+              </div>
+
+              <div id="tshirt_sml_text">
+        <span class="tshirt_sml_text">
+         <%= item.shape.text %>
+          </span>
+              </div>
+
+              </div>
+          <% end %>
+
+    </div>
+
+
+  <div id="tshirt_control">
+
+
+    <p class="heading_4">Your Cart</p>
+    <p class="cart_text">Please note that the Colour of Text you prefer<br> can be selected at Checkout.</p>
+
+
+    <div>
+
+      <table style="width:230px;float:left;">
+        <%= render(@cart.cart_line_items) %>
+
+            <tr class="total_line">
+              <td colspan="1" class="text_small">Total</td>
+              <td class="price"><%= number_to_currency(@cart.total_price) %></td>
+            </tr>
+
+      </table>
+
+        <% for item in @cart.cart_line_items %>
+            <td><%= button_to 'Delete', item, :method => :delete, :confirm => 'Are You Sure' %></td><br>
+        <% end %>
+
+    </div>
+
+     <br>
+
+    <%= link_to image_tag("checkout.png"), new_order_path, method: :get %>
+    <%= link_to image_tag("empty.png"), @cart, method: :delete,
+                confirm: 'Are you sure?' %>
+
+    <!--<%= button_to "Checkout", new_order_path, method: :get %>-->
+    <!--<%= button_to 'Empty cart', @cart, method: :delete,
+                data: { confirm: 'Are you sure?' } %>-->
+
+    <%= link_to image_tag("backtoshop.png"), :controller => "grid",  :action => "tshirt" %>
+
+  </div>
+  </div>
+
+
+      <div id="cart_bottom_text">
+       <!-- <p class="heading_4">See the Gallery for many more So Random T-Shirts!</p>-->
+      </div>
+
+      <div id="cart_bottom_pic">
+
+          <div id="cart_bottom_1_pic"></div>
+          <div id="cart_bottom_2_pic"></div>
+          <div id="cart_bottom_3_pic"></div>
+          <div id="cart_bottom_4_pic"></div>
+          <div id="cart_bottom_5_pic"></div>
+          <div id="cart_bottom_6_pic"></div>
+          <div id="cart_bottom_7_pic"></div>
+
+      </div>
+</div>

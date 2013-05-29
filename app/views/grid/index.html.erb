@@ -1,0 +1,23 @@
+
+<div id="main">
+
+  <% @shapes.each do |shape| %>
+      <div class="entry">
+
+        <%= link_to image_tag(shape.image_url), line_items_path(:shape_id => shape), :method => :post, remote: true %>
+
+
+      </div>
+  <% end %>
+
+</div>
+
+<div id="below_main">
+</div>
+<div id="row"> <%= render 'layouts/row' %> </div>
+<div id="row_text_behind"> Simply Click Randomly and See! <br>
+<span class="restart_text">You can Restart any time</span></div>
+<div id="phrase"> <span id="phrase_text">
+      <%= link_to "Click here to see your T-Shirt!", :controller => "grid",  :action => "tshirt" %> </span> <br>
+
+</div>

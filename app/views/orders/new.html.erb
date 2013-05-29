@@ -1,0 +1,67 @@
+
+<div id="main_users" xmlns="http://www.w3.org/1999/html">
+
+  <div id="orders_new_left">
+
+    <% if logged_in? %>
+        <!--<h2>Welcome to Check Out</h2>-->
+        <div>
+          <!--<fieldset>-->
+
+            <p class="intro">Please Enter Your Details</p>
+            <%= render 'form' %>
+
+          <!--</fieldset>-->
+        </div>
+
+        <!--below to link back to cart not grid/index!-->
+        <!--<%= link_to "Back", :controller => "carts",  :action => "show" %>-->
+
+    <% else %>
+        <p class="heading_4">Login</p>
+        <%= form_tag sessions_path do %>
+            <div class="field">
+              <%= label_tag :email %><br />
+              <%= text_field_tag :email %>
+            </div>
+            <div class="field">
+              <%= label_tag :password %><br />
+              <%= password_field_tag :password %>
+            </div>
+            <div class="actions">
+              <%= image_submit_tag("login.png") %>
+            </div>
+        <% end %>
+    <% end %>
+
+  </div>
+
+  <% if logged_in? %>
+  <div id="orders_new_right">
+    <p class="heading_4">Welcome!</p>
+    <p class="intro">
+      Simply enter your details. <br>
+      Select your size and the text colour you would like.<br>
+      Your order will be shipped today!<br>
+      Price includes shipping<br>
+
+    <p class="heading_4">Thanks!</p>
+    </p>
+  </div>
+
+
+  <% else %>
+      <div id="orders_new_right">
+        <p class="heading_4">Welcome!</p>
+        <p class="intro">
+          You must be logged in to place an order. <br>
+          Just enter the email and password you used <br>
+          when signing up.<br>
+          <%= link_to "Sign Up", new_user_path %>  is very simple!
+
+        <p class="heading_4">Thanks!</p>
+        </p>
+      </div>
+  <% end %>
+
+</div>
