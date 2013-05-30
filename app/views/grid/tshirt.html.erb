@@ -62,15 +62,15 @@
     <div id="buy_btn">
 
       <!--below will need to link to login if not logged in-->
-      <!--<%= link_to image_tag("buy_btn.png"), :controller => "grid",  :action => "index" %>-->
+
 
       <% @shapes.each do |shape| %>
           <div class="entry">
-            <!--<%= button_to 'Buy!', cart_line_items_path(shape_id: shape) %>-->
-            <!--<%= button_to image_tag("rails.png"), cart_line_items_path(shape_id: shape) %>-->
+
+
             <%= link_to image_tag("buy_btn.png"), cart_line_items_path(:shape_id => shape), :method => :post%>
 
-            <!--<%= link_to image_tag("button_pink.png"), cart_line_items_path(shape_id: shape)%>-->
+
           </div>
       <% end %>
     </div>
